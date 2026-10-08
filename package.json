@@ -1,6 +1,6 @@
 {
   "name": "tally-spec",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "Single source of truth for TallyPrime schema definitions, TDL contracts, and canonical API routes.",
   "type": "module",
   "exports": {
@@ -23,8 +23,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "node --test test/test.js",
-    "prepublishOnly": "npm test"
+    "test": "node --test test/test.js"
   },
   "repository": {
     "type": "git",
