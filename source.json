@@ -33,7 +33,7 @@
                 "fetch": {
                     "action": "fetch",
                     "resource": "Purchases",
-                    "tdl": "<TYPE>Vouchers:VoucherType</TYPE><CHILDOF>$$$$VchTypePurchase</CHILDOF><BELONGSTO>Yes</BELONGSTO><FETCH>Date, VoucherNumber, VoucherTypeName, PartyLedgerName, Amount, AllInventoryEntries, AllLedgerEntries</FETCH>",
+                    "tdl": "<TYPE>Vouchers:VoucherType</TYPE><CHILDOF>$$VchTypePurchase</CHILDOF><BELONGSTO>Yes</BELONGSTO><FETCH>Date, VoucherNumber, VoucherTypeName, PartyLedgerName, Amount, AllInventoryEntries, AllLedgerEntries</FETCH>",
                     "description": "Fetches purchase vouchers."
                 }
             },
@@ -41,7 +41,7 @@
                 "fetch": {
                     "action": "fetch",
                     "resource": "Sales",
-                    "tdl": "<TYPE>Vouchers:VoucherType</TYPE><CHILDOF>$$$$VchTypeSales</CHILDOF><BELONGSTO>Yes</BELONGSTO><FETCH>Date, VoucherNumber, VoucherTypeName, PartyLedgerName, Amount, AllInventoryEntries, AllLedgerEntries</FETCH>",
+                    "tdl": "<TYPE>Vouchers:VoucherType</TYPE><CHILDOF>$$VchTypeSales</CHILDOF><BELONGSTO>Yes</BELONGSTO><FETCH>Date, VoucherNumber, VoucherTypeName, PartyLedgerName, Amount, AllInventoryEntries, AllLedgerEntries</FETCH>",
                     "description": "Fetches sales vouchers."
                 }
             }
