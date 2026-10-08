@@ -66,39 +66,7 @@
           "action": "fetch",
           "resource": "StockItem",
           "tdl": "<TYPE>StockItem</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>BaseUnits</FETCH><FETCH>BatchAllocations.*</FETCH>",
-          "description": "Fetches stock items with batches.",
-          "transform": {
-            "instructions": {
-              "transform": {
-                "STOCKITEM": {
-                  "alterKey": "StockItems"
-                }
-              },
-              "StockItems": {
-                "transform": {
-                  "@_NAME": {
-                    "alterKey": "Name"
-                  },
-                  "@_RESERVEDNAME": {
-                    "alterKey": "ReserveName"
-                  },
-                  "BASEUNITS": {
-                    "alterKey": "Units",
-                    "valueKey": "#text"
-                  },
-                  "BATCHALLOCATIONS.LIST": {
-                    "alterKey": "Batches",
-                    "valueType": "array",
-                    "transform": {
-                      "GODOWNNAME": {
-                        "alterKey": "godownName"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
+          "description": "Fetches stock items with batches."
         }
       },
       "stockItems": {
