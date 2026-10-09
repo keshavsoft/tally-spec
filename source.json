@@ -34,7 +34,95 @@
                     "action": "fetch",
                     "resource": "Purchases",
                     "tdl": "<TYPE>Vouchers:VoucherType</TYPE><CHILDOF>$$VchTypePurchase</CHILDOF><BELONGSTO>Yes</BELONGSTO><FETCH>Date, VoucherNumber, VoucherTypeName, PartyLedgerName, Amount, AllInventoryEntries, AllLedgerEntries</FETCH>",
-                    "description": "Fetches purchase vouchers."
+                    "description": "Fetches purchase vouchers.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "VOUCHER": {
+                                    "alterKey": "Vouchers",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Vouchers": {
+                                "transform": {
+                                    "DATE": {
+                                        "alterKey": "Date",
+                                        "valueKey": "#text"
+                                    },
+                                    "VOUCHERNUMBER": {
+                                        "alterKey": "VoucherNumber"
+                                    },
+                                    "VOUCHERTYPENAME": {
+                                        "alterKey": "VoucherTypeName"
+                                    },
+                                    "PARTYLEDGERNAME": {
+                                        "alterKey": "PartyLedgerName",
+                                        "valueKey": "#text"
+                                    },
+                                    "AMOUNT": {
+                                        "alterKey": "Amount",
+                                        "valueKey": "#text"
+                                    },
+                                    "ALLINVENTORYENTRIES.LIST": {
+                                        "alterKey": "InventoryEntries",
+                                        "valueType": "array",
+                                        "transform": {
+                                            "STOCKITEMNAME": {
+                                                "alterKey": "StockItemName"
+                                            },
+                                            "RATE": {
+                                                "alterKey": "Rate"
+                                            },
+                                            "AMOUNT": {
+                                                "alterKey": "Amount"
+                                            },
+                                            "ACTUALQTY": {
+                                                "alterKey": "ActualQty"
+                                            },
+                                            "BILLEDQTY": {
+                                                "alterKey": "BilledQty"
+                                            },
+                                            "BATCHALLOCATIONS.LIST": {
+                                                "alterKey": "Batches",
+                                                "valueType": "array",
+                                                "transform": {
+                                                    "GODOWNNAME": {
+                                                        "alterKey": "godownName"
+                                                    },
+                                                    "BATCHNAME": {
+                                                        "alterKey": "BatchName"
+                                                    },
+                                                    "AMOUNT": {
+                                                        "alterKey": "Amount"
+                                                    },
+                                                    "ACTUALQTY": {
+                                                        "alterKey": "ActualQty"
+                                                    },
+                                                    "BILLEDQTY": {
+                                                        "alterKey": "BilledQty"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ALLLEDGERENTRIES.LIST": {
+                                        "alterKey": "LedgerEntries",
+                                        "valueType": "array",
+                                        "transform": {
+                                            "LEDGERNAME": {
+                                                "alterKey": "LedgerName",
+                                                "valueKey": "#text"
+                                            },
+                                            "AMOUNT": {
+                                                "alterKey": "Amount",
+                                                "valueKey": "#text"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "sales": {
@@ -42,7 +130,95 @@
                     "action": "fetch",
                     "resource": "Sales",
                     "tdl": "<TYPE>Vouchers:VoucherType</TYPE><CHILDOF>$$VchTypeSales</CHILDOF><BELONGSTO>Yes</BELONGSTO><FETCH>Date, VoucherNumber, VoucherTypeName, PartyLedgerName, Amount, AllInventoryEntries, AllLedgerEntries</FETCH>",
-                    "description": "Fetches sales vouchers."
+                    "description": "Fetches sales vouchers.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "VOUCHER": {
+                                    "alterKey": "Vouchers",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Vouchers": {
+                                "transform": {
+                                    "DATE": {
+                                        "alterKey": "Date",
+                                        "valueKey": "#text"
+                                    },
+                                    "VOUCHERNUMBER": {
+                                        "alterKey": "VoucherNumber"
+                                    },
+                                    "VOUCHERTYPENAME": {
+                                        "alterKey": "VoucherTypeName"
+                                    },
+                                    "PARTYLEDGERNAME": {
+                                        "alterKey": "PartyLedgerName",
+                                        "valueKey": "#text"
+                                    },
+                                    "AMOUNT": {
+                                        "alterKey": "Amount",
+                                        "valueKey": "#text"
+                                    },
+                                    "ALLINVENTORYENTRIES.LIST": {
+                                        "alterKey": "InventoryEntries",
+                                        "valueType": "array",
+                                        "transform": {
+                                            "STOCKITEMNAME": {
+                                                "alterKey": "StockItemName"
+                                            },
+                                            "RATE": {
+                                                "alterKey": "Rate"
+                                            },
+                                            "AMOUNT": {
+                                                "alterKey": "Amount"
+                                            },
+                                            "ACTUALQTY": {
+                                                "alterKey": "ActualQty"
+                                            },
+                                            "BILLEDQTY": {
+                                                "alterKey": "BilledQty"
+                                            },
+                                            "BATCHALLOCATIONS.LIST": {
+                                                "alterKey": "Batches",
+                                                "valueType": "array",
+                                                "transform": {
+                                                    "GODOWNNAME": {
+                                                        "alterKey": "godownName"
+                                                    },
+                                                    "BATCHNAME": {
+                                                        "alterKey": "BatchName"
+                                                    },
+                                                    "AMOUNT": {
+                                                        "alterKey": "Amount"
+                                                    },
+                                                    "ACTUALQTY": {
+                                                        "alterKey": "ActualQty"
+                                                    },
+                                                    "BILLEDQTY": {
+                                                        "alterKey": "BilledQty"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ALLLEDGERENTRIES.LIST": {
+                                        "alterKey": "LedgerEntries",
+                                        "valueType": "array",
+                                        "transform": {
+                                            "LEDGERNAME": {
+                                                "alterKey": "LedgerName",
+                                                "valueKey": "#text"
+                                            },
+                                            "AMOUNT": {
+                                                "alterKey": "Amount",
+                                                "valueKey": "#text"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -52,26 +228,13 @@
                     "action": "fetch",
                     "resource": "Unit",
                     "tdl": "<TYPE>Unit</TYPE><FETCH>$$Alias:Name</FETCH>",
-                    "description": "Fetches all units."
-                }
-            },
-            "units": {
-                "fetch": {
-                    "action": "fetch",
-                    "resource": "Unit",
-                    "tdl": "<TYPE>Unit</TYPE><FETCH>$$Alias:Name</FETCH>",
-                    "description": "Fetches units master from Tally."
-                },
-                "all": {
-                    "action": "fetch",
-                    "resource": "Unit",
-                    "tdl": "<TYPE>Unit</TYPE><FETCH>$$Alias:Name</FETCH>",
                     "description": "Fetches all units.",
                     "transform": {
                         "instructions": {
                             "transform": {
                                 "UNIT": {
-                                    "alterKey": "Units"
+                                    "alterKey": "Units",
+                                    "valueType": "array"
                                 }
                             },
                             "Units": {
@@ -88,18 +251,116 @@
                     }
                 }
             },
-            "stockItems": {
+            "units": {
+                "fetch": {
+                    "action": "fetch",
+                    "resource": "Unit",
+                    "tdl": "<TYPE>Unit</TYPE><FETCH>$$Alias:Name</FETCH>",
+                    "description": "Fetches units master from Tally.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "UNIT": {
+                                    "alterKey": "Units",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Units": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "all": {
+                    "action": "fetch",
+                    "resource": "Unit",
+                    "tdl": "<TYPE>Unit</TYPE><FETCH>$$Alias:Name</FETCH>",
+                    "description": "Fetches all units.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "UNIT": {
+                                    "alterKey": "Units",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Units": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "stockItem": {
                 "all": {
                     "action": "fetch",
                     "resource": "StockItem",
                     "tdl": "<TYPE>StockItem</TYPE><FETCH>$$Alias:Name</FETCH>",
-                    "description": "Fetches all stock items."
+                    "description": "Fetches all stock items.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKITEM": {
+                                    "alterKey": "StockItems",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockItems": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "withBaseUnits": {
                     "action": "fetch",
                     "resource": "StockItem",
                     "tdl": "<TYPE>StockItem</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>BaseUnits</FETCH>",
-                    "description": "Fetches stock items with base units."
+                    "description": "Fetches stock items with base units.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKITEM": {
+                                    "alterKey": "StockItems",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockItems": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "BASEUNITS": {
+                                        "alterKey": "Units",
+                                        "valueKey": "#text"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "withBatches": {
                     "action": "fetch",
@@ -110,7 +371,8 @@
                         "instructions": {
                             "transform": {
                                 "STOCKITEM": {
-                                    "alterKey": "StockItems"
+                                    "alterKey": "StockItems",
+                                    "valueType": "array"
                                 }
                             },
                             "StockItems": {
@@ -131,6 +393,18 @@
                                         "transform": {
                                             "GODOWNNAME": {
                                                 "alterKey": "godownName"
+                                            },
+                                            "BATCHNAME": {
+                                                "alterKey": "BatchName"
+                                            },
+                                            "OPENINGBALANCE": {
+                                                "alterKey": "OpeningBalance"
+                                            },
+                                            "OPENINGVALUE": {
+                                                "alterKey": "OpeningValue"
+                                            },
+                                            "OPENINGRATE": {
+                                                "alterKey": "OpeningRate"
                                             }
                                         }
                                     }
@@ -140,12 +414,113 @@
                     }
                 }
             },
-            "stockItems-": {
+            "stockItems": {
+                "all": {
+                    "action": "fetch",
+                    "resource": "StockItem",
+                    "tdl": "<TYPE>StockItem</TYPE><FETCH>$$Alias:Name</FETCH>",
+                    "description": "Fetches all stock items.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKITEM": {
+                                    "alterKey": "StockItems",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockItems": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "withBaseUnits": {
+                    "action": "fetch",
+                    "resource": "StockItem",
+                    "tdl": "<TYPE>StockItem</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>BaseUnits</FETCH>",
+                    "description": "Fetches stock items with base units.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKITEM": {
+                                    "alterKey": "StockItems",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockItems": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "BASEUNITS": {
+                                        "alterKey": "Units",
+                                        "valueKey": "#text"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "withBatches": {
                     "action": "fetch",
                     "resource": "StockItem",
                     "tdl": "<TYPE>StockItem</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>BaseUnits</FETCH><FETCH>BatchAllocations.*</FETCH>",
-                    "description": "Fetches stock items with batch allocations from Tally."
+                    "description": "Fetches stock items with batch allocations from Tally.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKITEM": {
+                                    "alterKey": "StockItems",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockItems": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "BASEUNITS": {
+                                        "alterKey": "Units",
+                                        "valueKey": "#text"
+                                    },
+                                    "BATCHALLOCATIONS.LIST": {
+                                        "alterKey": "Batches",
+                                        "valueType": "array",
+                                        "transform": {
+                                            "GODOWNNAME": {
+                                                "alterKey": "godownName"
+                                            },
+                                            "BATCHNAME": {
+                                                "alterKey": "BatchName"
+                                            },
+                                            "OPENINGBALANCE": {
+                                                "alterKey": "OpeningBalance"
+                                            },
+                                            "OPENINGVALUE": {
+                                                "alterKey": "OpeningValue"
+                                            },
+                                            "OPENINGRATE": {
+                                                "alterKey": "OpeningRate"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "ledger": {
@@ -153,19 +528,117 @@
                     "action": "fetch",
                     "resource": "Ledger",
                     "tdl": "<TYPE>Ledger</TYPE><FETCH>$$Alias:Name</FETCH>",
-                    "description": "Fetches all ledgers."
+                    "description": "Fetches all ledgers.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "LEDGER": {
+                                    "alterKey": "Ledgers",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Ledgers": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "withDetails": {
                     "action": "fetch",
                     "resource": "Ledger",
                     "tdl": "<TYPE>Ledger</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>GSTRegistrationType</FETCH><FETCH>GSTIN</FETCH>",
-                    "description": "Fetches ledgers with GSTIN details."
+                    "description": "Fetches ledgers with GSTIN details.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "LEDGER": {
+                                    "alterKey": "Ledgers",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Ledgers": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "GSTREGISTRATIONTYPE": {
+                                        "alterKey": "GSTRegistrationType",
+                                        "valueKey": "#text"
+                                    },
+                                    "PARTYGSTIN": {
+                                        "alterKey": "GSTIN",
+                                        "valueKey": "#text"
+                                    },
+                                    "GSTIN": {
+                                        "alterKey": "GSTIN",
+                                        "valueKey": "#text"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "withGstDetails": {
                     "action": "fetch",
                     "resource": "Ledger",
                     "tdl": "<TYPE>Ledger</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>LEDGSTREGDETAILS.LIST</FETCH>",
-                    "description": "Fetches ledgers with full GST registration details."
+                    "description": "Fetches ledgers with full GST registration details.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "LEDGER": {
+                                    "alterKey": "Ledgers",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Ledgers": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "LEDGSTREGDETAILS.LIST": {
+                                        "alterKey": "GstDetails",
+                                        "valueType": "array",
+                                        "transform": {
+                                            "APPLICABLEFROM": {
+                                                "alterKey": "ApplicableFrom",
+                                                "valueKey": "#text"
+                                            },
+                                            "GSTREGISTRATIONTYPE": {
+                                                "alterKey": "GSTRegistrationType",
+                                                "valueKey": "#text"
+                                            },
+                                            "STATE": {
+                                                "alterKey": "State",
+                                                "valueKey": "#text"
+                                            },
+                                            "PLACEOFSUPPLY": {
+                                                "alterKey": "PlaceOfSupply",
+                                                "valueKey": "#text"
+                                            },
+                                            "GSTIN": {
+                                                "alterKey": "GSTIN",
+                                                "valueKey": "#text"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "ledgers": {
@@ -173,7 +646,53 @@
                     "action": "fetch",
                     "resource": "Ledger",
                     "tdl": "<TYPE>Ledger</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>LEDGSTREGDETAILS.LIST</FETCH>",
-                    "description": "Fetches ledgers with GST registration details from Tally."
+                    "description": "Fetches ledgers with GST registration details from Tally.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "LEDGER": {
+                                    "alterKey": "Ledgers",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Ledgers": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "LEDGSTREGDETAILS.LIST": {
+                                        "alterKey": "GstDetails",
+                                        "valueType": "array",
+                                        "transform": {
+                                            "APPLICABLEFROM": {
+                                                "alterKey": "ApplicableFrom",
+                                                "valueKey": "#text"
+                                            },
+                                            "GSTREGISTRATIONTYPE": {
+                                                "alterKey": "GSTRegistrationType",
+                                                "valueKey": "#text"
+                                            },
+                                            "STATE": {
+                                                "alterKey": "State",
+                                                "valueKey": "#text"
+                                            },
+                                            "PLACEOFSUPPLY": {
+                                                "alterKey": "PlaceOfSupply",
+                                                "valueKey": "#text"
+                                            },
+                                            "GSTIN": {
+                                                "alterKey": "GSTIN",
+                                                "valueKey": "#text"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "stockGroup": {
@@ -181,13 +700,57 @@
                     "action": "fetch",
                     "resource": "StockGroup",
                     "tdl": "<TYPE>StockGroup</TYPE><FETCH>$$Alias:Name</FETCH>",
-                    "description": "Fetches all stock groups."
+                    "description": "Fetches all stock groups.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKGROUP": {
+                                    "alterKey": "StockGroups",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockGroups": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "withParent": {
                     "action": "fetch",
                     "resource": "StockGroup",
                     "tdl": "<TYPE>StockGroup</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>Parent</FETCH>",
-                    "description": "Fetches stock groups with parent hierarchies."
+                    "description": "Fetches stock groups with parent hierarchies.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKGROUP": {
+                                    "alterKey": "StockGroups",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockGroups": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "PARENT": {
+                                        "alterKey": "Parent",
+                                        "valueKey": "#text"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "stockGroups": {
@@ -195,7 +758,31 @@
                     "action": "fetch",
                     "resource": "StockGroup",
                     "tdl": "<TYPE>StockGroup</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>Parent</FETCH>",
-                    "description": "Fetches stock groups with parent details from Tally."
+                    "description": "Fetches stock groups with parent details from Tally.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "STOCKGROUP": {
+                                    "alterKey": "StockGroups",
+                                    "valueType": "array"
+                                }
+                            },
+                            "StockGroups": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "PARENT": {
+                                        "alterKey": "Parent",
+                                        "valueKey": "#text"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "godown": {
@@ -203,13 +790,57 @@
                     "action": "fetch",
                     "resource": "Godown",
                     "tdl": "<TYPE>Godown</TYPE><FETCH>$$Alias:Name</FETCH>",
-                    "description": "Fetches all godowns."
+                    "description": "Fetches all godowns.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "GODOWN": {
+                                    "alterKey": "Godowns",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Godowns": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "withParent": {
                     "action": "fetch",
                     "resource": "Godown",
                     "tdl": "<TYPE>Godown</TYPE><FETCH>$$Alias:Name</FETCH><FETCH>Parent</FETCH>",
-                    "description": "Fetches godowns with parent hierarchies."
+                    "description": "Fetches godowns with parent hierarchies.",
+                    "transform": {
+                        "instructions": {
+                            "transform": {
+                                "GODOWN": {
+                                    "alterKey": "Godowns",
+                                    "valueType": "array"
+                                }
+                            },
+                            "Godowns": {
+                                "transform": {
+                                    "@_NAME": {
+                                        "alterKey": "Name"
+                                    },
+                                    "@_RESERVEDNAME": {
+                                        "alterKey": "ReserveName"
+                                    },
+                                    "PARENT": {
+                                        "alterKey": "Parent",
+                                        "valueKey": "#text"
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         },
