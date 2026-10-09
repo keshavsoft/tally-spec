@@ -1,6 +1,6 @@
 {
   "name": "tally-spec",
-  "version": "1.3.2",
+  "version": "1.4.1",
   "description": "Single source of truth for TallyPrime schema definitions, TDL contracts, and canonical API routes.",
   "type": "module",
   "exports": {
