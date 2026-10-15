@@ -846,13 +846,18 @@
         },
         "reports": {
             "stockSummary": {
-                "fetch": {
-                    "action": "fetch",
-                    "resource": "StockSummary",
-                    "reportId": "Stock Summary",
-                    "staticVariables": "<EXPLODEFLAG>Yes</EXPLODEFLAG>",
-                    "description": "Fetches the Stock Summary report from Tally."
-                }
+                "action": "fetch",
+                "resource": "StockSummary",
+                "reportId": "Stock Summary",
+                "staticVariables": "<EXPLODEFLAG>Yes</EXPLODEFLAG>",
+                "description": "Fetches the Stock Summary report from Tally."
+            },
+            "trialBalance": {
+                "action": "fetch",
+                "resource": "TrialBalance",
+                "reportId": "Trial Balance",
+                "staticVariables": "",
+                "description": "Fetches the Trial Balance report from Tally."
             }
         }
     }
