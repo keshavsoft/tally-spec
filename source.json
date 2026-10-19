@@ -256,66 +256,58 @@
                         "staticVariables": "<EXPLODEFLAG>Yes</EXPLODEFLAG>",
                         "description": "Fetches the Stock Summary report from Tally.",
                         "tdlmessage": [
-                            [
-                                {
-                                    "definitions": [
-                                        {
-                                            "metadata": {
-                                                "name": "Receipts",
-                                                "type": "Collection",
-                                                "ismodify": false
-                                            },
-                                            "attributes": [
-                                                {
-                                                    "Source Collection": "KSReceiptVoucherSource"
-                                                },
-                                                {
-                                                    "Walk": "AllLedgerEntries"
-                                                },
-                                                {
-                                                    "Source Fetch": "Date,VoucherNumber"
-                                                },
-                                                {
-                                                    "Fetch": "LedgerName"
-                                                },
-                                                {
-                                                    "Fetch": "Amount"
-                                                },
-                                                {
-                                                    "Fetch": "IsDeemedPositive"
-                                                },
-                                                {
-                                                    "Compute": "ParentVoucherNumber: $VoucherNumber"
-                                                },
-                                                {
-                                                    "Compute": "ParentVoucherDate: $Date"
-                                                }
-                                            ]
+                            {
+                                "definitions": [
+                                    {
+                                        "metadata": {
+                                            "name": "Receipts",
+                                            "type": "Collection",
+                                            "ismodify": false
                                         },
-                                        {
-                                            "metadata": {
-                                                "name": "KSReceiptVoucherSource",
-                                                "type": "Collection",
-                                                "ismodify": false
+                                        "attributes": [
+                                            {
+                                                "Source Collection": "KSReceiptVoucherSource"
                                             },
-                                            "attributes": [
-                                                {
-                                                    "Type": "Vouchers:VoucherType"
-                                                },
-                                                {
-                                                    "ChildOf": "$$VchTypeReceipt"
-                                                },
-                                                {
-                                                    "Fetch": "Date"
-                                                },
-                                                {
-                                                    "Fetch": "VoucherNumber"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
+                                            {
+                                                "Walk": "AllLedgerEntries"
+                                            },
+                                            {
+                                                "Source Fetch": "Date,VoucherNumber"
+                                            },
+                                            {
+                                                "Fetch": "LedgerName"
+                                            },
+                                            {
+                                                "Fetch": "Amount"
+                                            },
+                                            {
+                                                "Fetch": "IsDeemedPositive"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "metadata": {
+                                            "name": "KSReceiptVoucherSource",
+                                            "type": "Collection",
+                                            "ismodify": false
+                                        },
+                                        "attributes": [
+                                            {
+                                                "Type": "Vouchers:VoucherType"
+                                            },
+                                            {
+                                                "ChildOf": "$$VchTypeReceipt"
+                                            },
+                                            {
+                                                "Fetch": "Date"
+                                            },
+                                            {
+                                                "Fetch": "VoucherNumber"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
                         ]
                     }
                 }
